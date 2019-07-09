@@ -23,9 +23,13 @@ namespace tbm { //Tracking-by-Matching
 struct CV_EXPORTS TrackedObject {
     cv::Rect rect;       ///< Detected object ROI (zero area if N/A).
     double confidence;   ///< Detection confidence level (-1 if N/A).
-    int frame_idx;       ///< Frame index where object was detected (-1 if N/A).
-    int object_id;       ///< Unique object identifier (-1 if N/A).
-    uint64_t timestamp;  ///< Timestamp in milliseconds.
+    int frame_idx; ///< Frame index where object was detected (-1 if N/A).
+	std::string class_string;
+	int object_id;       ///< Unique object identifier (-1 if N/A).
+	int class_id_21;
+	int class_id;
+	uint64_t timestamp;  ///< Timestamp in milliseconds.
+	mutable int saved;
 
     ///
     /// \brief Default constructor.
@@ -43,12 +47,16 @@ struct CV_EXPORTS TrackedObject {
     /// \param frame_idx Index of frame.
     /// \param object_id Object ID.
     ///
-    TrackedObject(const cv::Rect &rect, float confidence, int frame_idx,
-                  int object_id)
-        : rect(rect),
-        confidence(confidence),
-        frame_idx(frame_idx),
-        object_id(object_id),
+	TrackedObject(const cv::Rect &rect, float confidence, int frame_idx,
+		int object_id, int id, int id_21, std::string s)
+		: rect(rect),
+		confidence(confidence),
+		frame_idx(frame_idx),
+		object_id(object_id),
+		class_id(id),
+		class_id_21(id_21),
+		class_string(s),
+		saved(0),
         timestamp(0) {}
 };
 

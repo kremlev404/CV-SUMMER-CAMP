@@ -13,7 +13,7 @@ using namespace cv::tbm;
 static const char* keys =
 { "{video_name       | | video name                       }"
 "{start_frame      |0| Start frame                      }"
-"{frame_step       |1| Frame step                       }"
+"{frame_step       |3| Frame step                       }"
 "{detector_model   | | Path to detector's Caffe model   }"
 "{detector_weights | | Path to detector's Caffe weights }"
 "{desired_class_id |-1| The desired class that should be tracked }"

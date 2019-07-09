@@ -25,6 +25,6 @@ public:
 	bool swapRB;
 	Scalar mean;
 	Net net;
-	DnnClassificator(string modelPath_, string configPath_, string labelsPath_, int inputWidth_, int inputHeight_, Scalar mean_ = (0, 0, 0, 0), bool swapRB_ = false);
+	DnnClassificator(string modelPath_, string configPath_, string labelsPath_, int inputWidth_, int inputHeight_, Scalar mean_, bool swapRB_);
 	Mat Classify(Mat image);
 };
